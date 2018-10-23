@@ -6,7 +6,7 @@ token = config('TOKEN')
 updater = Updater(token=token)
 dispatcher = updater.dispatcher
 
-def echo(bot, update):
+def stalk(bot, update):
     api = requests.get("https://api.github.com/users/" + update.message.text)
     res = api.json()
     # print(api, res)
@@ -30,7 +30,7 @@ def echo(bot, update):
     profile += pic
     update.message.reply_text(profile)
 
-dispatcher.add_handler(MessageHandler(Filters.text, echo))
+dispatcher.add_handler(MessageHandler(Filters.text, stalk))
 
 updater.start_polling()
 updater.idle()
