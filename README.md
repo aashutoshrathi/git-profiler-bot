@@ -2,6 +2,11 @@
 
 This is a sample bot using GitHub API to fetch user profile.
 
+## How to use?
+
+- Go to Telegram and search for `@git_profile_bot`.
+- Start chatting.
+
 ## How to setup?
 
 ```sh
