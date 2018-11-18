@@ -3,3 +3,4 @@
 *.vscode
 serverless.env.yml
 .serverless
+node_modules
