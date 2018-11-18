@@ -31,9 +31,10 @@ def stalk(user):
     """
     api = requests.get("https://api.github.com/users/" + user)
     res = api.json()
-    profile = ""
+    profile = "[​​​​​​​​​​​]"
     if api.status_code == 200:
-        pic = res["avatar_url"] + "&s=128"
+        pic = "({0})".format(res["avatar_url"])
+        profile += pic
         for data in res:
             url = data.endswith('url')
             ids = data.endswith('id')
@@ -48,10 +49,8 @@ def stalk(user):
                 if copy == "created_at":
                     copy = "Joined"
                     copy_res = copy_res.split('T')[0]
-                profile += str(copy.title().replace("_", " ")) + \
-                    ": " + str(copy_res) + "\n"
-        profile += pic
-        return profile
+                profile += "*{0}*: {1}\n".format(
+                    str(copy.title().replace("_", " ")), str(copy_res))
     else:
         error_messages = {
             404: "User with username {0} does not exists, please check and try again".format(user),
@@ -61,9 +60,8 @@ def stalk(user):
             "Something went wrong, please check your internet connection \n"
             "Use stalk --help for Help"
         )
-        err_msg = error_messages.get(api.status_code, fallback_error_message)
-
-        return err_msg
+        profile = error_messages.get(api.status_code, fallback_error_message)
+    return profile
 
 
 def configure_telegram():
@@ -101,7 +99,7 @@ def webhook(event, context):
                     """
         else:
             reply = stalk(text)
-        bot.sendMessage(chat_id=chat_id, text=reply)
+        bot.sendMessage(chat_id=chat_id, parse_mode='markdown', text=reply)
         logger.info('Message sent')
 
         return OK_RESPONSE
