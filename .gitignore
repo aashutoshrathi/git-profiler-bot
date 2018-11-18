@@ -1,2 +1,5 @@
 *.env
 *.exe
+*.vscode
+serverless.env.yml
+.serverless

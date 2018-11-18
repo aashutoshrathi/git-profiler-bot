@@ -1,23 +1,57 @@
 # git-profiler-bot
 
-This is a sample bot using GitHub API to fetch user profile.
+This is a Telegram bot which fetches Profile summary using GitHub API.
+Ported to serverless as part of #noserverNovember
 
-## How to use?
+## How to use 🤔
 
 - Visit [Git Profile Bot](http://t.me/git_profile_bot)
 - Start chatting.
 
-## How to setup?
+## Usage
+
+### What do I need 🤔
+
+- A AWS key configured locally, see [here](https://serverless.com/framework/docs/providers/aws/guide/credentials/).
+- NodeJS.
+- A Telegram account.
+
+### Installing
 
 ```sh
-pip install -r requirements.txt
-```
+# Install the Serverless Framework
+$ npm install serverless -g
 
-- Use [BotFather](https://telegram.me/BotFather) to generate TOKEN.
-- Copy .env.sample to create a .env file and enter your TOKEN in it.
+# Install the necessary plugins
+$ npm install
+
+# Get a bot from Telegram, sending this message to @BotFather
+$ /newbot
+
+# Put the token received into a file called serverless.env.yml, like this
+$ cat serverless.env.yml
+TELEGRAM_TOKEN: <your_token>
+
+# Change app and tenant to your ones
+$ nano serverless.yml
+app: <your-app>
+tenant: <username>
+
+# Export you AWS Keys to your shell
+
+- Get some help from [here](https://serverless.com/framework/docs/providers/aws/guide/credentials/)
+
+# Deploy it!
+$ serverless deploy
+
+# With the URL returned in the output, configure the Webhook
+$ curl -X POST https://<your_url>.amazonaws.com/dev/set_webhook
+```
 
 ## Contributing
 
 Feel free to raise issues and send PRs. :smile:
 
-<p align="center"> Made from scratch with ❤ by <a href="https://github.com/aashutoshrathi">Aashutosh Rathi</a></p>
+---
+
+<p align="center"> Made with ❤️ by <a href="https://github.com/aashutoshrathi">Aashutosh Rathi</a></p>
