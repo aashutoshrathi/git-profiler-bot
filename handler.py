@@ -1,9 +1,11 @@
+import datetime
 import json
-import os
 import logging
+import os
+from urllib import request
+
 import requests
 import telegram
-import datetime
 
 
 # Logging is cool!
@@ -33,7 +35,7 @@ def stalk(user):
     now = datetime.datetime.now()
     api = requests.get("https://api.github.com/users/" + user)
     res = api.json()
-    contri_api = ('{0}{1}/count').format(os.environ.get('CONTRI_API'), user)
+    contri_api = requests.get(('{0}{1}/count').format(os.environ.get('CONTRI_API'), user))
     contri_data = contri_api.json()
     profile = "​​​​​​​​"
     if api.status_code == 200:
