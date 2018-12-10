@@ -31,9 +31,9 @@ def stalk(user):
     """
     api = requests.get("https://api.github.com/users/" + user)
     res = api.json()
-    profile = "[​​​​​​​​​​​]"
+    profile = "​​​​​​​​"
     if api.status_code == 200:
-        pic = "({0})".format(res["avatar_url"])
+        pic = "<a href='{0}'>&#8205;</a>".format(res["avatar_url"])
         profile += pic
         for data in res:
             url = data.endswith('url')
@@ -49,7 +49,7 @@ def stalk(user):
                 if copy == "created_at":
                     copy = "Joined"
                     copy_res = copy_res.split('T')[0]
-                profile += "*{0}*: {1}\n".format(
+                profile += "{0}: {1}\n".format(
                     str(copy.title().replace("_", " ")), str(copy_res))
     else:
         error_messages = {
@@ -99,7 +99,7 @@ def webhook(event, context):
                     """
         else:
             reply = stalk(text)
-        bot.sendMessage(chat_id=chat_id, parse_mode='markdown', text=reply)
+        bot.sendMessage(chat_id=chat_id, parse_mode='HTML', text=reply)
         logger.info('Message sent')
 
         return OK_RESPONSE
