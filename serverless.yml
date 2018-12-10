@@ -8,6 +8,7 @@ provider:
   profile: iam-aws
   environment:
     TELEGRAM_TOKEN: ${file(./serverless.env.yml):TELEGRAM_TOKEN, ''}
+    CONTRI_API: ${file(./serverless.env.yml):CONTRI_API, ''}
 
 functions:
   webhook:

@@ -3,6 +3,7 @@ import os
 import logging
 import requests
 import telegram
+import datetime
 
 
 # Logging is cool!
@@ -29,11 +30,15 @@ def stalk(user):
     This function takes username as input
     and returns the profile as O/P
     """
+    now = datetime.datetime.now()
     api = requests.get("https://api.github.com/users/" + user)
     res = api.json()
+    contri_api = ('{0}{1}/count').format(os.environ.get('CONTRI_API'), user)
+    contri_data = contri_api.json()
     profile = "​​​​​​​​"
     if api.status_code == 200:
         pic = "<a href='{0}'>&#8205;</a>".format(res["avatar_url"])
+        # The above line is hack of the year.
         profile += pic
         for data in res:
             url = data.endswith('url')
@@ -49,8 +54,13 @@ def stalk(user):
                 if copy == "created_at":
                     copy = "Joined"
                     copy_res = copy_res.split('T')[0]
-                profile += "{0}: {1}\n".format(
+                profile += "<strong>{0}:</strong> {1}\n".format(
                     str(copy.title().replace("_", " ")), str(copy_res))
+        if res['type'] == "User":
+            y, m, d = "{0}".format(now.year), "{0}".format(
+                now.month), "{0}".format(now.day)
+            profile += "<strong>Today's Contribution: </strong> {0}".format(contri_data.get(y).get(m).get(d))
+
     else:
         error_messages = {
             404: "User with username {0} does not exists, please check and try again".format(user),
