@@ -1,11 +1,12 @@
+import datetime
 import json
-import os
 import logging
+import os
 import requests
 import telegram
 
 
-# Logging is cool!
+# Logging is cool! Yeah! It is :heart:
 logger = logging.getLogger()
 if logger.handlers:
     for handler in logger.handlers:
@@ -29,11 +30,14 @@ def stalk(user):
     This function takes username as input
     and returns the profile as O/P
     """
+    now = datetime.datetime.now()
     api = requests.get("https://api.github.com/users/" + user)
     res = api.json()
+    count_api_url = os.environ.get('CONTRI_API')
     profile = "​​​​​​​​"
     if api.status_code == 200:
         pic = "<a href='{0}'>&#8205;</a>".format(res["avatar_url"])
+        # The above line is hack of the year.
         profile += pic
         for data in res:
             url = data.endswith('url')
@@ -49,13 +53,25 @@ def stalk(user):
                 if copy == "created_at":
                     copy = "Joined"
                     copy_res = copy_res.split('T')[0]
-                profile += "{0}: {1}\n".format(
+                profile += "<strong>{0}:</strong> {1}\n".format(
                     str(copy.title().replace("_", " ")), str(copy_res))
+                # Yeah I know that's too much of hacks
+        if res['type'] == "User":
+            contri_api = requests.get(
+                '{0}{1}/count'.format(count_api_url, user))
+            contri_data = contri_api.json()
+            y, m, d = "{0}".format(now.year), "{0}".format(
+                now.month), "{0}".format(now.day)
+            profile += "<strong>Today's Contribution: </strong> {0}".format(
+                contri_data.get('data').get(y).get(m).get(d))
+
     else:
+        # Serious shit
         error_messages = {
             404: "User with username {0} does not exists, please check and try again".format(user),
             403: "API rate limit exceeded for IP address"
         }
+        # Using Jio?
         fallback_error_message = (
             "Something went wrong, please check your internet connection \n"
             "Use stalk --help for Help"
@@ -93,10 +109,9 @@ def webhook(event, context):
         text = update.message.text
 
         if text == '/start':
-            reply = """Hello, Aashutosh Rathi here!
-                    To start stalking, just enter username and we will fetch their profile for you.
-                    Project Link: https://github.com/aashutoshrathi/git-profiler-bot
-                    """
+            reply = "Hello, Aashutosh Rathi here!" \
+                    "\nTo start stalking, just enter username and we will fetch their profile for you.\n" \
+                    "Project URL: https://github.com/aashutoshrathi/git-profiler-bot"
         else:
             reply = stalk(text)
         bot.sendMessage(chat_id=chat_id, parse_mode='HTML', text=reply)
