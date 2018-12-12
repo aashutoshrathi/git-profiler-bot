@@ -4,3 +4,4 @@
 serverless.env.yml
 .serverless
 node_modules
+__pycache__/
