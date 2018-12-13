@@ -4,7 +4,6 @@ import logging
 import os
 import requests
 import telegram
-from random import randint
 
 
 # Logging is cool! Yeah! It is :heart:
@@ -37,7 +36,7 @@ def stalk(user):
     count_api_url = os.environ.get('CONTRI_API')
     profile = "​​​​​​​​"
     if api.status_code == 200:
-        pic = "<a href='{0}'>&#8205;</a>".format(res["avatar_url"] + '?' + str(randint(1,100000)))
+        pic = "<a href='{0}'>&#8205;</a>".format(res["avatar_url"], datetime.datetime.now().isoformat())
         # The above line is hack of the year.
         profile += pic
         for data in res:
