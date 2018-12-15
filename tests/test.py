@@ -3,6 +3,7 @@ sys.path.append('../')
 from handler import stalk
 import requests
 import os
+import datetime
 
 # Yeah Testing is cool and totally worth it!
 user = 'aashutoshrathi'
@@ -52,3 +53,11 @@ def test_followers():
 
 def test_following():
     assert int(util('Following')) == result['following']
+
+def test_contribution_count():
+    if result['type'] == 'User':
+        now = datetime.datetime.now()
+        contri_api = requests.get('{0}{1}/count'.format(os.environ['CONTRI_API'], user))
+        contri_data = contri_api.json()
+        y, m, d = "{0}".format(now.year), "{0}".format(now.month), "{0}".format(now.day)
+        assert str(util("Today\'s Contribution")) == str(contri_data.get('data').get(y).get(m).get(d))
