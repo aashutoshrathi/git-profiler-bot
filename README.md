@@ -48,6 +48,24 @@ $ serverless deploy
 $ curl -X POST https://<your_url>.amazonaws.com/dev/set_webhook
 ```
 
+### Testing
+
+```sh
+# Create a virtual python env
+$ python3 -m venv pytest-env
+
+# Activate the virtual env
+$ source pytest-env/bin/activate
+
+# Install following modules
+$ pip3 install pytest
+$ pip3 install requests
+$ pip3 install python-telegram-bot
+
+# Run tests
+$ pytest test.py 
+```
+
 ## Contributing
 
 Feel free to raise issues and send PRs. :smile:

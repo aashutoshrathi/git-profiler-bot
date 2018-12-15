@@ -34,7 +34,7 @@ def stalk(user):
     api = requests.get("https://api.github.com/users/" + user)
     res = api.json()
     count_api_url = os.environ.get('CONTRI_API')
-    profile = "​​​​​​​​"
+    profile = ""
     if api.status_code == 200:
         pic = "<a href='{0}?a={1}'>&#8205;</a>".format(
             res["avatar_url"], datetime.now().isoformat())
