@@ -17,6 +17,7 @@ profile_details = profile.split('\n')
 api = requests.get("https://api.github.com/users/" + user)
 result = api.json()
 
+
 def util(key):
     value = ''
     for detail in profile_details:
@@ -25,10 +26,12 @@ def util(key):
             value = detail[starting_index:]
     return value
 
+
 def get_contri_data():
     contri_api = requests.get('{0}{1}/count'.format(os.environ['CONTRI_API'], user))
     contri_data = contri_api.json()
     return contri_data
+
 
 @pytest.mark.parametrize("actual_key,expected_key", [
     ('Login', 'login'),
@@ -45,12 +48,14 @@ def get_contri_data():
 def test_profile_details(actual_key, expected_key):
     assert str(util(actual_key)) == str(result[expected_key])
 
+
 def test_contribution_count():
     if result['type'] == 'User':
         now = datetime.now()
         contri_data = get_contri_data()
         y, m, d = "{0}".format(now.year), "{0}".format(now.month), "{0}".format(now.day)
         assert str(util("Today\'s Contribution")) == str(contri_data.get('data').get(y).get(m).get(d))
+
 
 def test_streak_count():
     if result['type'] == 'User':
