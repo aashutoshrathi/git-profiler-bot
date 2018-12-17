@@ -1,10 +1,10 @@
-import datetime
 import json
 import logging
 import os
+from datetime import datetime, timedelta
+
 import requests
 import telegram
-
 
 # Logging is cool! Yeah! It is :heart:
 logger = logging.getLogger()
@@ -30,13 +30,14 @@ def stalk(user):
     This function takes username as input
     and returns the profile as O/P
     """
-    now = datetime.datetime.now()
+    now = datetime.now()
     api = requests.get("https://api.github.com/users/" + user)
     res = api.json()
     count_api_url = os.environ.get('CONTRI_API')
     profile = "​​​​​​​​"
     if api.status_code == 200:
-        pic = "<a href='{0}?a={1}'>&#8205;</a>".format(res["avatar_url"], datetime.datetime.now().isoformat())
+        pic = "<a href='{0}?a={1}'>&#8205;</a>".format(
+            res["avatar_url"], datetime.now().isoformat())
         # The above line is hack of the year.
         profile += pic
         for data in res:
@@ -53,17 +54,13 @@ def stalk(user):
                 if copy == "created_at":
                     copy = "Joined"
                     copy_res = copy_res.split('T')[0]
-                profile += "<strong>{0}:</strong> {1}\n".format(
+                profile += "<b>{0}:</b> {1}\n".format(
                     str(copy.title().replace("_", " ")), str(copy_res))
                 # Yeah I know that's too much of hacks
         if res['type'] == "User":
-            contri_api = requests.get(
-                '{0}{1}/count'.format(count_api_url, user))
-            contri_data = contri_api.json()
-            y, m, d = "{0}".format(now.year), "{0}".format(
-                now.month), "{0}".format(now.day)
-            profile += "<strong>Today's Contribution: </strong> {0}".format(
-                contri_data.get('data').get(y).get(m).get(d))
+            streak, contri = streak_handler(user)
+            profile += "<b>Today's Contribution:</b> {0}\n".format(contri)
+            profile += "<b>Current Streak:</b> {0} days".format(streak)
 
     else:
         # Serious shit
@@ -78,6 +75,27 @@ def stalk(user):
         )
         profile = error_messages.get(api.status_code, fallback_error_message)
     return profile
+
+
+def streak_handler(user):
+    streak_count = 0
+    count_api_url = os.environ.get('CONTRI_API')
+    contri_api = requests.get(
+        '{0}{1}/count'.format(count_api_url, user))
+    contri_data = contri_api.json()
+    d = datetime.today()
+    y, m, d = "{0}".format(d.year), "{0}".format(
+        d.month), "{0}".format(d.day)
+    
+    contri_today = contri_data.get('data').get(y).get(m).get(d)
+
+    while contri_data.get('data').get(y).get(m).get(d) != 0:
+        streak_count += 1
+        d = datetime.today() - timedelta(days=streak_count)
+        y, m, d = "{0}".format(d.year), "{0}".format(
+            d.month), "{0}".format(d.day)
+
+    return streak_count, contri_today
 
 
 def configure_telegram():
