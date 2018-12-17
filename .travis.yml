@@ -1,10 +1,36 @@
-language: python
+sudo: required
+dist: trusty
+language: node_js
+node_js:
+  - "5.5"
+  - "4.2"
 python:
-  - "3.6"
-  - "3.6-dev"  # 3.6 development branch
-# command to install dependencies
+  - "3.7"
+addons:
+  apt:
+    sources:
+      - ubuntu-toolchain-r-test
+    packages:
+      # nodejs >v4 compiler requirements
+      - g++-4.8
+      - openjdk-7-jdk
+before_install:
+  - sudo add-apt-repository ppa:deadsnakes/ppa
+  - sudo apt-get update
+  - sudo apt-get install python3.6
+  - pipenv install
+  - curl "https://bootstrap.pypa.io/get-pip.py" -o "get-pip.py"
+  - python3 get-pip.py
+
 install:
-  - pip install -r requirements.txt
-# command to run tests
+  - npm install -g serverless
+  - sudo pip3 install pipenv
+
 script:
+  - pipenv shell
   - pytest
+
+env:
+  global:
+    - CXX=g++-4.8
+    - NODE_ENV=development
