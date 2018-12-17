@@ -58,12 +58,10 @@ $ python3 -m venv pytest-env
 $ source pytest-env/bin/activate
 
 # Install following modules
-$ pip3 install pytest
-$ pip3 install requests
-$ pip3 install python-telegram-bot
+$ pip3 install -r requirements.txt
 
 # Run tests
-$ pytest test.py 
+$ pytest
 ```
 
 ## Contributing
