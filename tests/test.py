@@ -3,11 +3,12 @@ sys.path.append('../')
 from handler import stalk
 import requests
 import os
-import datetime
+import pytest
+from datetime import datetime, timedelta
 
 # Yeah Testing is cool and totally worth it!
 user = 'aashutoshrathi'
-delimiter = '</strong>'
+delimiter = '</b>'
 os.environ['CONTRI_API'] = 'https://github-contributions-api.herokuapp.com/'
 
 profile = stalk(user)
@@ -24,40 +25,42 @@ def util(key):
             value = detail[starting_index:]
     return value
 
-def test_username():
-    assert util('Login') == str(result['login'])
+def get_contri_data():
+    contri_api = requests.get('{0}{1}/count'.format(os.environ['CONTRI_API'], user))
+    contri_data = contri_api.json()
+    return contri_data
 
-def test_user_type():
-    assert util('Type') == str(result['type'])
-
-def test_name():
-    assert util('Name') == str(result['name'])
-
-def test_company():
-    assert util('Company') == str(result['company'])
-
-def test_blog():
-    assert util('Blog') == str(result['blog'])
-
-def test_email():
-    assert util('Email') == str(result['email'])
-
-def test_public_repos():
-    assert int(util('Public Repos')) == result['public_repos']
-
-def test_public_gists():
-    assert int(util('Public Gists')) == result['public_gists']
-
-def test_followers():
-    assert int(util('Followers')) == result['followers']
-
-def test_following():
-    assert int(util('Following')) == result['following']
+@pytest.mark.parametrize("actual_key,expected_key", [
+    ('Login', 'login'),
+    ('Type', 'type'),
+    ('Name', 'name'),
+    ('Company', 'company'),
+    ('Blog', 'blog'),
+    ('Email', 'email'),
+    ('Public Repos', 'public_repos'),
+    ('Public Gists', 'public_gists'),
+    ('Followers', 'followers'),
+    ('Following', 'following')
+])
+def test_profile_details(actual_key, expected_key):
+    assert str(util(actual_key)) == str(result[expected_key])
 
 def test_contribution_count():
     if result['type'] == 'User':
-        now = datetime.datetime.now()
-        contri_api = requests.get('{0}{1}/count'.format(os.environ['CONTRI_API'], user))
-        contri_data = contri_api.json()
+        now = datetime.now()
+        contri_data = get_contri_data()
         y, m, d = "{0}".format(now.year), "{0}".format(now.month), "{0}".format(now.day)
         assert str(util("Today\'s Contribution")) == str(contri_data.get('data').get(y).get(m).get(d))
+
+def test_streak_count():
+    if result['type'] == 'User':
+        streak_count = 0
+        contri_data = get_contri_data()
+        d = datetime.today()
+        y, m, d = "{0}".format(d.year), "{0}".format(d.month), "{0}".format(d.day)
+        while contri_data.get('data').get(y).get(m).get(d) != 0:
+            streak_count += 1
+            d = datetime.today() - timedelta(days=streak_count)
+            y, m, d = "{0}".format(d.year), "{0}".format(
+                d.month), "{0}".format(d.day)
+        assert str(util('Current Streak')) == str(streak_count) + ' days'
