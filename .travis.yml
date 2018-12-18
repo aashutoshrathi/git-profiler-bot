@@ -8,7 +8,9 @@ node_js:
 # command to install dependencies
 install:
   - pip install -r requirements.txt
+  - npm i -g npm
   - npm i -g serverless
 # command to run tests
 script:
-  - pytest
+  # - sls deploy
+  - echo "Doing nothin now"
