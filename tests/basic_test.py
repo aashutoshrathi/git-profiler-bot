@@ -1,10 +1,10 @@
+from datetime import datetime, timedelta
+import pytest
+import os
+import requests
+from handler import stalk
 import sys
 sys.path.append('../')
-from handler import stalk
-import requests
-import os
-import pytest
-from datetime import datetime, timedelta
 
 # Yeah Testing is cool and totally worth it!
 user = 'aashutoshrathi'
@@ -28,12 +28,13 @@ def util(key):
 
 
 def get_contri_data():
-    contri_api = requests.get('{0}{1}/count'.format(os.environ['CONTRI_API'], user))
+    contri_api = requests.get(
+        '{0}{1}/count'.format(os.environ['CONTRI_API'], user))
     contri_data = contri_api.json()
     return contri_data
 
 
-@pytest.mark.parametrize("actual_key,expected_key", [
+@pytest.mark.parametrize("actual_key, expected_key", [
     ('Login', 'login'),
     ('Type', 'type'),
     ('Name', 'name'),
@@ -53,8 +54,10 @@ def test_contribution_count():
     if result['type'] == 'User':
         now = datetime.now()
         contri_data = get_contri_data()
-        y, m, d = "{0}".format(now.year), "{0}".format(now.month), "{0}".format(now.day)
-        assert str(util("Today\'s Contribution")) == str(contri_data.get('data').get(y).get(m).get(d))
+        y, m, d = "{0}".format(now.year), "{0}".format(
+            now.month), "{0}".format(now.day)
+        assert str(util("Today\'s Contribution")) == str(
+            contri_data.get('data').get(y).get(m).get(d))
 
 
 def test_streak_count():
@@ -62,7 +65,8 @@ def test_streak_count():
         streak_count = 0
         contri_data = get_contri_data()
         d = datetime.today()
-        y, m, d = "{0}".format(d.year), "{0}".format(d.month), "{0}".format(d.day)
+        y, m, d = "{0}".format(d.year), "{0}".format(
+            d.month), "{0}".format(d.day)
         while contri_data.get('data').get(y).get(m).get(d) != 0:
             streak_count += 1
             d = datetime.today() - timedelta(days=streak_count)

@@ -1,2 +1,4 @@
 python-telegram-bot
 requests
+pytest
+hypothesis

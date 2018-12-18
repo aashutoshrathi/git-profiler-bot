@@ -1,0 +1,16 @@
+language: python
+python:
+  - "3.6"
+  - "3.6-dev"  # 3.6 development branch
+node_js:
+  - "5.5"
+  - "4.2"
+# command to install dependencies
+install:
+  - pip install -r requirements.txt
+  - npm i -g npm
+  - npm i -g serverless
+# command to run tests
+script:
+  # - sls deploy
+  - echo "Doing nothin now"
