@@ -26,11 +26,11 @@ $ npm install serverless -g
 $ npm install
 
 # Get a bot from Telegram, sending this message to @BotFather
-Go to https://telegram.me/botfather
+Go to https://t.me/BotFather
 $ /newbot
 
 # Put the token received into a file called serverless.env.yml, like this
-$ cat serverless.env.yml
+$ cat >serverless.env.yml
 TELEGRAM_TOKEN: <your_token>
 
 # Change app and tenant to your ones
