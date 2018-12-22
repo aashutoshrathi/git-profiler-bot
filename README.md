@@ -26,6 +26,7 @@ $ npm install serverless -g
 $ npm install
 
 # Get a bot from Telegram, sending this message to @BotFather
+Go to https://telegram.me/botfather
 $ /newbot
 
 # Put the token received into a file called serverless.env.yml, like this
