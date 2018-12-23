@@ -50,7 +50,7 @@ def stalk(user):
                 pass
             else:
                 copy = data
-                copy_res = res[data]
+                copy_res = fix_html_parsing(res[data])
                 if copy == "created_at":
                     copy = "Joined"
                     copy_res = copy_res.split('T')[0]
@@ -86,7 +86,7 @@ def streak_handler(user):
     d = datetime.today()
     y, m, d = "{0}".format(d.year), "{0}".format(
         d.month), "{0}".format(d.day)
-    
+
     contri_today = contri_data.get('data').get(y).get(m).get(d)
 
     while contri_data.get('data').get(y).get(m).get(d) != 0:
@@ -96,6 +96,12 @@ def streak_handler(user):
             d.month), "{0}".format(d.day)
 
     return streak_count, contri_today
+
+
+def fix_html_parsing(data):
+    data.replace('>', '&gt;')
+    data.replace('<', '&lt;')
+    return data
 
 
 def configure_telegram():
