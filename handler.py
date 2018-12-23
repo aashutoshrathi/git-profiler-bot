@@ -2,6 +2,7 @@ import json
 import logging
 import os
 from datetime import datetime, timedelta
+from html import escape
 
 import requests
 import telegram
@@ -55,7 +56,7 @@ def stalk(user):
                     copy = "Joined"
                     copy_res = copy_res.split('T')[0]
                 profile += "<b>{0}:</b> {1}\n".format(
-                    str(copy.title().replace("_", " ")), str(copy_res))
+                    str(copy.title().replace("_", " ")), escape(str(copy_res)))
                 # Yeah I know that's too much of hacks
         if res['type'] == "User":
             streak, contri = streak_handler(user)
@@ -86,7 +87,7 @@ def streak_handler(user):
     d = datetime.today()
     y, m, d = "{0}".format(d.year), "{0}".format(
         d.month), "{0}".format(d.day)
-    
+
     contri_today = contri_data.get('data').get(y).get(m).get(d)
 
     while contri_data.get('data').get(y).get(m).get(d) != 0:
