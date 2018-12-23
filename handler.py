@@ -50,7 +50,7 @@ def stalk(user):
                 pass
             else:
                 copy = data
-                copy_res = fix_html_parsing(res[data])
+                copy_res = fix_html_parsing(str(res[data]))
                 if copy == "created_at":
                     copy = "Joined"
                     copy_res = copy_res.split('T')[0]
@@ -99,8 +99,8 @@ def streak_handler(user):
 
 
 def fix_html_parsing(data):
-    data.replace('>', '&gt;')
-    data.replace('<', '&lt;')
+    data.replace('>', '&gt; ')
+    data.replace('<', '&lt; ')
     return data
 
 
