@@ -56,7 +56,7 @@ def stalk(user):
                     copy = "Joined"
                     copy_res = copy_res.split('T')[0]
                 profile += "<b>{0}:</b> {1}\n".format(
-                    str(copy.title().replace("_", " ")), str(copy_res))
+                    str(copy.title().replace("_", " ")), escape(str(copy_res)))
                 # Yeah I know that's too much of hacks
         if res['type'] == "User":
             streak, contri = streak_handler(user)
@@ -133,7 +133,7 @@ def webhook(event, context):
                     "Project URL: https://github.com/aashutoshrathi/git-profiler-bot"
         else:
             reply = stalk(text)
-        bot.sendMessage(chat_id=chat_id, parse_mode='HTML', text=escape(reply))
+        bot.sendMessage(chat_id=chat_id, parse_mode='HTML', text=reply)
         logger.info('Message sent')
 
         return OK_RESPONSE
