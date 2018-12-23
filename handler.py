@@ -50,7 +50,7 @@ def stalk(user):
                 pass
             else:
                 copy = data
-                copy_res = fix_html_parsing(str(res[data]))
+                copy_res = res[data]
                 if copy == "created_at":
                     copy = "Joined"
                     copy_res = copy_res.split('T')[0]
@@ -98,12 +98,6 @@ def streak_handler(user):
     return streak_count, contri_today
 
 
-def fix_html_parsing(data):
-    data.replace('>', '&gt; ')
-    data.replace('<', '&lt; ')
-    return data
-
-
 def configure_telegram():
     """
     Configures the bot with a Telegram Token.
@@ -138,7 +132,7 @@ def webhook(event, context):
                     "Project URL: https://github.com/aashutoshrathi/git-profiler-bot"
         else:
             reply = stalk(text)
-        bot.sendMessage(chat_id=chat_id, parse_mode='HTML', text=reply)
+        bot.sendMessage(chat_id=chat_id, parse_mode='HTML', text=escape(reply))
         logger.info('Message sent')
 
         return OK_RESPONSE
