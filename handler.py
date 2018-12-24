@@ -45,9 +45,10 @@ def stalk(user):
             url = data.endswith('url')
             ids = data.endswith('id')
             hireable = data.endswith('hireable')
+            type_ = data.endswith('type')
             admin = data.endswith('admin')
             updated = data.endswith('updated_at')
-            if url or ids or hireable or admin or updated:
+            if url or ids or type_ or admin or updated:
                 pass
             else:
                 copy = data
@@ -55,9 +56,13 @@ def stalk(user):
                 if copy == "created_at":
                     copy = "Joined"
                     copy_res = copy_res.split('T')[0]
-                profile += "<b>{0}:</b> {1}\n".format(
-                    str(copy.title().replace("_", " ")), escape(str(copy_res)))
-                # Yeah I know that's too much of hacks
+                if copy == "hireable":
+                    copy = "Hireable?"
+                    copy_res = "Hell Yeah!" if copy_res == "true" else "Nay"
+                if copy_res != "null":
+                    profile += "<b>{0}:</b> {1}\n".format(
+                        str(copy.title().replace("_", " ")), escape(str(copy_res)))
+                    # Yeah I know that's too much of hacks
         if res['type'] == "User":
             streak, contri = streak_handler(user)
             profile += "<b>Today's Contribution:</b> {0}\n".format(contri)
