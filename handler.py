@@ -57,8 +57,8 @@ def stalk(user):
                     copy_res = copy_res.split('T')[0]
                 if copy == "hireable":
                     copy = "Hireable?"
-                    copy_res = "Hell Yeah" if copy_res == true else "Nay"
-                if copy_res != null:
+                    copy_res = "Hell Yeah!" if copy_res == "true" else "Nay"
+                if copy_res != "null":
                     profile += "<b>{0}:</b> {1}\n".format(
                         str(copy.title().replace("_", " ")), escape(str(copy_res)))
                     # Yeah I know that's too much of hacks
