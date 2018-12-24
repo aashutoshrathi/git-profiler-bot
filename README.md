@@ -1,4 +1,5 @@
 # git-profiler-bot
+[![Build Status](https://travis-ci.org/aashutoshrathi/git-profiler-bot.png)](https://travis-ci.org/aashutoshrathi/git-profiler-bot)
 
 This is a Telegram bot which fetches Profile summary using GitHub API.
 Ported to serverless as part of #noserverNovember
