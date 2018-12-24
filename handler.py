@@ -45,9 +45,10 @@ def stalk(user):
             url = data.endswith('url')
             ids = data.endswith('id')
             hireable = data.endswith('hireable')
+            type_ = data.endswith('type')
             admin = data.endswith('admin')
             updated = data.endswith('updated_at')
-            if url or ids or admin or updated:
+            if url or ids or type_ or admin or updated:
                 pass
             else:
                 copy = data
