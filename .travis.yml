@@ -7,10 +7,14 @@ node_js:
   - "4.2"
 # command to install dependencies
 install:
-  - pip install -r requirements.txt
+  - pip3 install -r requirements.txt
   - npm i -g npm
   - npm i -g serverless
+  - npm i serverless-python-requirements
+  - pip3 install pipenv
 # command to run tests
 script:
   # - sls deploy
-  - echo "Doing nothin now"
+  - pytest
+  - serverless config credentials --provider aws --key ${aws_access_key_id} --secret ${aws_secret_access_key} --profile iam-aws
+  - sls deploy
