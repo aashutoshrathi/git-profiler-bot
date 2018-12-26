@@ -1,20 +1,23 @@
+dist: xenial
 language: python
 python:
   - "3.6"
-  - "3.6-dev"  # 3.6 development branch
-node_js:
-  - "5.5"
-  - "4.2"
 # command to install dependencies
 install:
-  - pip3 install -r requirements.txt
   - npm i -g npm
+  - pip install pipenv
+  - pip install -r requirements.txt
   - npm i -g serverless
   - npm i serverless-python-requirements
-  - pip3 install pipenv
+  - pip install -U pytest
+  - echo -e "TELEGRAM_TOKEN: ${TELEGRAM_TOKEN}\nCONTRI_API: ${CONTRI_API}" serverless.env.yml
 # command to run tests
 script:
-  # - sls deploy
   - pytest
-  - serverless config credentials --provider aws --key ${aws_access_key_id} --secret ${aws_secret_access_key} --profile iam-aws
-  - sls deploy
+# deploy only if tests pass
+after_success:
+  deploy:
+    script:
+      - if: ${TRAVIS_PULL_REQUEST} != "true"
+      - serverless config credentials --provider aws --key ${aws_access_key_id} --secret ${aws_secret_access_key} --profile iam-aws
+      - sls deploy
