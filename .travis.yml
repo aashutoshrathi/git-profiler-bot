@@ -10,10 +10,9 @@ install:
   - npm i -g serverless
   - npm i serverless-python-requirements
   - pip install -U pytest
-  - cat >serverless.env.yml <<EOF
-  - >TELEGRAM_TOKEN: ${TELEGRAM_TOKEN}
-  - >CONTRI_API: ${CONTRI_API}
-  - >EOF
+  - cat >serverless.env.yml
+  - TELEGRAM_TOKEN: ${TELEGRAM_TOKEN}
+  - CONTRI_API: ${CONTRI_API}
 # command to run tests
 script:
   - pytest
