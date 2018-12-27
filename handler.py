@@ -135,7 +135,7 @@ def webhook(event, context):
         if text == '/start':
             reply = "Hello, Aashutosh Rathi here!" \
                     "\nTo start stalking, just enter username and we will fetch their profile for you.\n" \
-                    "Project URL: https://github.com/aashutoshrathi/git-profiler-bot"
+                    "Project: https://github.com/aashutoshrathi/git-profiler-bot"
         else:
             reply = stalk(text)
         bot.sendMessage(chat_id=chat_id, parse_mode='HTML', text=reply)
