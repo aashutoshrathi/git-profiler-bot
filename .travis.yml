@@ -2,8 +2,7 @@ dist: xenial
 language: python
 python:
   - "3.6"
-before_install:
-  script: printf "TELEGRAM_TOKEN: ${TELEGRAM_TOKEN}\nCONTRI_API: ${CONTRI_API}" > serverless.env.yml
+script: printf "TELEGRAM_TOKEN: ${TELEGRAM_TOKEN}\nCONTRI_API: ${CONTRI_API}" > serverless.env.yml
 # command to install dependencies
 install:
   - npm i -g npm
