@@ -32,7 +32,7 @@ def stalk(user):
     and returns the profile as O/P
     """
     now = datetime.now()
-    api = requests.get("https://api.github.com/users/" + user)
+    api = requests.get("https://aashutoshrathi.glitch.me/api/gh/" + user)
     res = api.json()
     count_api_url = os.environ.get('CONTRI_API')
     profile = ""
