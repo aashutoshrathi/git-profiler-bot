@@ -65,9 +65,9 @@ def stalk(user):
                     # Yeah I know that's too much of hacks
         if res['type'] == "User":
             streak, contri = streak_handler(user)
-            include_today = "Hope you commit today :)" if contri == 0 else "Glad you commited today!"
+            include_today = "Hope you commit today :p" if contri == 0 else "Glad you committed today! :)"
             profile += "<b>Today's Contribution:</b> {0}\n".format(contri)
-            profile += "<b>Current Streak:</b> {0} days".format(streak)
+            profile += "<b>Current Streak:</b> {0} days ({1})".format(streak, include_today)
 
     else:
         # Serious shit
