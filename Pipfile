@@ -8,6 +8,7 @@ python-telegram-bot = "*"
 requests = "*"
 pytest = "*"
 hypothesis = "*"
+autopep8 = "*"
 
 [dev-packages]
 

@@ -65,6 +65,7 @@ def stalk(user):
                     # Yeah I know that's too much of hacks
         if res['type'] == "User":
             streak, contri = streak_handler(user)
+            include_today = "Hope you commit today :)" if contri == 0 else "Glad you commited today!"
             profile += "<b>Today's Contribution:</b> {0}\n".format(contri)
             profile += "<b>Current Streak:</b> {0} days".format(streak)
 
@@ -94,6 +95,12 @@ def streak_handler(user):
         d.month), "{0}".format(d.day)
 
     contri_today = contri_data.get('data').get(y).get(m).get(d)
+
+    # If today's contri is 0 then look for previous day easily.
+    if contri_today == 0:
+        d = datetime.today() - timedelta(days=streak_count)
+        y, m, d = "{0}".format(d.year), "{0}".format(
+            d.month), "{0}".format(d.day)
 
     while contri_data.get('data').get(y).get(m).get(d) != 0:
         streak_count += 1
@@ -132,10 +139,11 @@ def webhook(event, context):
         chat_id = update.message.chat.id
         text = update.message.text
 
-        if text == '/start':
+        if text == '/start' or text == '--help':
             reply = "Hello, Aashutosh Rathi here!" \
                     "\nTo start stalking, just enter username and we will fetch their profile for you.\n" \
-                    "Project: https://github.com/aashutoshrathi/git-profiler-bot"
+                    "Give us a star at https://github.com/aashutoshrathi/git-profiler-bot\n" \
+                    "You can reach out to me at: https://aashutoshrathi.tk"
         else:
             reply = stalk(text)
         bot.sendMessage(chat_id=chat_id, parse_mode='HTML', text=reply)
