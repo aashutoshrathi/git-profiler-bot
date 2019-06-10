@@ -70,4 +70,4 @@ def test_streak_count():
             d = datetime.today() - timedelta(days=streak_count)
             y, m, d = "{0}".format(d.year), "{0}".format(
                 d.month), "{0}".format(d.day)
-        assert str(util('Current Streak'))[:7] == str(streak_count) + ' days'
+        assert str(util('Current Streak'))[:6] == str(streak_count) + ' days'
