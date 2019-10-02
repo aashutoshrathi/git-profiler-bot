@@ -32,10 +32,10 @@
         },
         "attrs": {
             "hashes": [
-                "sha256:69c0dbf2ed392de1cb5ec704444b08a5ef81680a61cb899dc08127123af36a79",
-                "sha256:f0b870f674851ecbfbbbd364d6b5cbdff9dcedbc7f3f5e18a6891057f21fe399"
+                "sha256:ec20e7a4825331c1b5ebf261d111e16fa9612c1f7a5e1f884f12bd53a664dfd2",
+                "sha256:f913492e1663d3c36f502e5e9ba6cd13cf19d7fab50aa13239e420fef95e1396"
             ],
-            "version": "==19.1.0"
+            "version": "==19.2.0"
         },
         "autopep8": {
             "hashes": [
@@ -120,11 +120,11 @@
         },
         "hypothesis": {
             "hashes": [
-                "sha256:d1296d14870a71c1407e8a028ebb1ac75e44fcc528eb08761fae4cd1a373ab2c",
-                "sha256:e4d70db2086215c90d8235c764ccf2371e34837e03daf2b14ea5fb227b47fa55"
+                "sha256:2d0f5c69d939da4c2d6e1e686623c26a91087f3fc9077cd865013f532583dc05",
+                "sha256:d66286a7a67946d843b37c5656321ea3fd318c259dc0ed9aeb6f2d4b037b876a"
             ],
             "index": "pypi",
-            "version": "==4.36.0"
+            "version": "==4.38.1"
         },
         "idna": {
             "hashes": [
