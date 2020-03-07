@@ -1,7 +1,7 @@
 dist: xenial
 language: python
 python:
-  - "3.6"
+  - "3.7.6"
 # command to install dependencies
 install:
   - npm i -g npm
