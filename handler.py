@@ -25,6 +25,8 @@ ERROR_RESPONSE = {
     'body': json.dumps('Oops, something went wrong!')
 }
 
+def get_profile(user):
+    return '{}{}'.format(os.environ.get('GH_API'), user)
 
 def stalk(user):
     """
@@ -32,12 +34,12 @@ def stalk(user):
     and returns the profile as O/P
     """
     now = datetime.now()
-    api = requests.get("https://aashutoshrathi.glitch.me/api/gh/" + user)
+    api = requests.get(get_profile(user))
     res = api.json()
     count_api_url = os.environ.get('CONTRI_API')
     profile = ""
     if api.status_code == 200:
-        pic = "<a href='{0}?a={1}'>&#8205;</a>".format(
+        pic = "<a href='{}?a={}'>&#8205;</a>".format(
             res["avatar_url"], datetime.now().isoformat())
         # The above line is hack of the year.
         profile += pic
@@ -60,19 +62,19 @@ def stalk(user):
                     copy = "Hireable?"
                     copy_res = "Hell Yeah!" if copy_res else "Nay"
                 if copy_res != None:
-                    profile += "<b>{0}:</b> {1}\n".format(
+                    profile += "<b>{}:</b> {}\n".format(
                         str(copy.title().replace("_", " ")), escape(str(copy_res)))
                     # Yeah I know that's too much of hacks
         if res['type'] == "User":
             streak, contri = streak_handler(user)
             include_today = "Hope you commit today :p" if contri == 0 else "Glad you committed today! :)"
-            profile += "<b>Today's Contribution:</b> {0}\n".format(contri)
-            profile += "<b>Current Streak:</b> {0} days ({1})".format(streak, include_today)
+            profile += "<b>Today's Contribution:</b> {}\n".format(contri)
+            profile += "<b>Current Streak:</b> {} days ({})".format(streak, include_today)
 
     else:
         # Serious shit
         error_messages = {
-            404: "User with username {0} does not exists, please check and try again".format(user),
+            404: "User with username {} does not exists, please check and try again".format(user),
             403: "API rate limit exceeded for IP address"
         }
         # Using Jio?
@@ -88,25 +90,25 @@ def streak_handler(user):
     streak_count = 0
     count_api_url = os.environ.get('CONTRI_API')
     contri_api = requests.get(
-        '{0}{1}/count'.format(count_api_url, user))
+        '{}{}/count'.format(count_api_url, user))
     contri_data = contri_api.json()
     d = datetime.today()
-    y, m, d = "{0}".format(d.year), "{0}".format(
-        d.month), "{0}".format(d.day)
+    y, m, d = "{}".format(d.year), "{}".format(
+        d.month), "{}".format(d.day)
 
     contri_today = contri_data.get('data').get(y).get(m).get(d)
 
     # If today's contri is 0 then look for previous day easily.
     if contri_today == 0:
         d = datetime.today() - timedelta(days=streak_count)
-        y, m, d = "{0}".format(d.year), "{0}".format(
-            d.month), "{0}".format(d.day)
+        y, m, d = "{}".format(d.year), "{}".format(
+            d.month), "{}".format(d.day)
 
     while contri_data.get('data').get(y).get(m).get(d) != 0:
         streak_count += 1
         d = datetime.today() - timedelta(days=streak_count)
-        y, m, d = "{0}".format(d.year), "{0}".format(
-            d.month), "{0}".format(d.day)
+        y, m, d = "{}".format(d.year), "{}".format(
+            d.month), "{}".format(d.day)
 
     return streak_count, contri_today
 
@@ -129,9 +131,8 @@ def webhook(event, context):
     """
     Runs the Telegram webhook.
     """
-    print(context)
     bot = configure_telegram()
-    logger.info('Event: {0}'.format(event))
+    logger.info('Event: {}'.format(event))
 
     if event.get('httpMethod') == 'POST' and event.get('body'):
         logger.info('Message received')
