@@ -4,8 +4,8 @@ tenant: aashutoshrathi
 
 provider:
   name: aws
-  runtime: python3.6
-  profile: iam-aws
+  runtime: python3.7
+  region: ap-south-1
   environment:
     TELEGRAM_TOKEN: ${file(./serverless.env.yml):TELEGRAM_TOKEN, ''}
     CONTRI_API: ${file(./serverless.env.yml):CONTRI_API, ''}
