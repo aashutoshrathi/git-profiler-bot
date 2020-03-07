@@ -9,6 +9,7 @@ provider:
   environment:
     TELEGRAM_TOKEN: ${file(./serverless.env.yml):TELEGRAM_TOKEN, ''}
     CONTRI_API: ${file(./serverless.env.yml):CONTRI_API, ''}
+    GH_API: ${file(./serverless.env.yml):GH_API, ''}
 
 functions:
   webhook:
