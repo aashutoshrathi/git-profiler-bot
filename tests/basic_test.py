@@ -14,7 +14,7 @@ os.environ['CONTRI_API'] = 'https://github-contributions-api.herokuapp.com/'
 profile = stalk(user)
 profile_details = profile.split('\n')
 
-api = requests.get("https://aashutoshrathi.glitch.me/api/gh/" + user)
+api = requests.get('{}{}'.format(os.environ['GH'], user))
 result = api.json()
 
 
