@@ -118,11 +118,11 @@
         },
         "hypothesis": {
             "hashes": [
-                "sha256:22fb60bd0c6eb7849121a7df263a91da23b4e8506d3ba9e92ac696d2720ac0f5",
-                "sha256:4b4c236a2e14fca1dfc254bb38592360dfb1cbd9d3c4c410c0b7e91f37a43bf3"
+                "sha256:65207ad35ccf30682d5c2cb169c27df71edcbdda9d22df568b979e9bd0ad3040",
+                "sha256:6834102f23fec6b1ed336e88a087b7eface2b11fce1abf76bfa3a054d49e795e"
             ],
             "index": "pypi",
-            "version": "==5.6.0"
+            "version": "==5.7.1"
         },
         "idna": {
             "hashes": [
@@ -249,10 +249,10 @@
         },
         "wcwidth": {
             "hashes": [
-                "sha256:8fd29383f539be45b20bd4df0dc29c20ba48654a41e661925e612311e9f3c603",
-                "sha256:f28b3e8a6483e5d49e7f8949ac1a78314e740333ae305b4ba5defd3e74fb37a8"
+                "sha256:cafe2186b3c009a04067022ce1dcd79cb38d8d65ee4f4791b8888d6599d1bbe1",
+                "sha256:ee73862862a156bf77ff92b09034fc4825dd3af9cf81bc5b360668d425f3c5f1"
             ],
-            "version": "==0.1.8"
+            "version": "==0.1.9"
         },
         "zipp": {
             "hashes": [
