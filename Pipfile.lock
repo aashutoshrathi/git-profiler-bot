@@ -133,11 +133,11 @@
         },
         "importlib-metadata": {
             "hashes": [
-                "sha256:06f5b3a99029c7134207dd882428a66992a9de2bef7c2b699b5641f9886c3302",
-                "sha256:b97607a1a18a5100839aec1dc26a1ea17ee0d93b20b0f008d80a5a050afb200b"
+                "sha256:2a688cbaa90e0cc587f1df48bdc97a6eadccdcd9c35fb3f976a09e3b5016d90f",
+                "sha256:34513a8a0c4962bc66d35b359558fd8a5e10cd472d37aec5f66858addef32c1e"
             ],
             "markers": "python_version < '3.8'",
-            "version": "==1.5.0"
+            "version": "==1.6.0"
         },
         "more-itertools": {
             "hashes": [
@@ -198,11 +198,11 @@
         },
         "python-telegram-bot": {
             "hashes": [
-                "sha256:0a97cbca638f949582b4ee326170d2f8d7f4bf559a4e511132bb2203623e04ad",
-                "sha256:d3cffd020af4094d07c11783f875e5c682072ba7f5bc21ce89ff0222f4e6d742"
+                "sha256:6d69fb04dc8d83e01cb25a0d83aaa2a1a4b7d5b14cd38b9f8922a567b4a4a510",
+                "sha256:af36fbf051415ded8b2633f27b71d292efcd85d58a647a1f138db191380144ff"
             ],
             "index": "pypi",
-            "version": "==12.4.2"
+            "version": "==12.5.1"
         },
         "requests": {
             "hashes": [
