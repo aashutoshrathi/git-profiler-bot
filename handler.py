@@ -25,8 +25,10 @@ ERROR_RESPONSE = {
     'body': json.dumps('Oops, something went wrong!')
 }
 
+
 def get_profile(user):
     return '{}{}'.format(os.environ.get('GH_API'), user)
+
 
 def stalk(user):
     """
@@ -69,7 +71,8 @@ def stalk(user):
             streak, contri = streak_handler(user)
             include_today = "Hope you commit today :p" if contri == 0 else "Glad you committed today! :)"
             profile += "<b>Today's Contribution:</b> {}\n".format(contri)
-            profile += "<b>Current Streak:</b> {} days ({})".format(streak, include_today)
+            profile += "<b>Current Streak:</b> {} days ({})".format(
+                streak, include_today)
 
     else:
         # Serious shit
@@ -80,7 +83,7 @@ def stalk(user):
         # Using Jio?
         fallback_error_message = (
             "Something went wrong, please check your internet connection \n"
-            "Use stalk --help for Help"
+            "Type help for Help"
         )
         profile = error_messages.get(api.status_code, fallback_error_message)
     return profile
@@ -140,16 +143,15 @@ def webhook(event, context):
         chat_id = update.message.chat.id
         text = update.message.text
 
-        if text == '/start' or text == '--help':
-            reply = "Hello, Aashutosh Rathi here!" \
+        if text == '/start' or text == 'help':
+            reply = "Hey 👋🏻, Aashutosh here!" \
                     "\nTo start stalking, just enter username and we will fetch their profile for you.\n" \
                     "Give us a star at https://github.com/aashutoshrathi/git-profiler-bot\n" \
-                    "You can reach out to me at: https://aashutoshrathi.tk"
+                    "You can reach out to me at: https://aashutosh.dev"
         else:
             reply = stalk(text)
         bot.sendMessage(chat_id=chat_id, parse_mode='HTML', text=reply)
         logger.info('Message sent')
-
         return OK_RESPONSE
 
     return ERROR_RESPONSE
