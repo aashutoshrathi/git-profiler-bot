@@ -32,10 +32,10 @@
         },
         "certifi": {
             "hashes": [
-                "sha256:5ad7e9a056d25ffa5082862e36f119f7f7cec6457fa07ee2f8c339814b80c9b1",
-                "sha256:9cd41137dc19af6a5e03b630eefe7d1f458d964d406342dd3edf625839b944cc"
+                "sha256:5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3",
+                "sha256:8fc0819f1f30ba15bdb34cceffb9ef04d99f420f68eb75d901e9560b8749fc41"
             ],
-            "version": "==2020.4.5.2"
+            "version": "==2020.6.20"
         },
         "cffi": {
             "hashes": [
@@ -116,11 +116,11 @@
         },
         "hypothesis": {
             "hashes": [
-                "sha256:0addcdf1b8c2ce4114780f8d03f99fad1335123e17fa2a3b74ee14d9a4b44103",
-                "sha256:40a6aec202dfa7bfb90847612177e1aa5e6313b535cc6e1460cd0b917b7b5d14"
+                "sha256:29e69777d460494ac987b0f60a9ace5a3142c7ba731e27f014caf5a0b93409da",
+                "sha256:57935a5a1272227b945de3b7d0cefdbbfec1c3d479d22e5f7361ac0d1717dc14"
             ],
             "index": "pypi",
-            "version": "==5.16.2"
+            "version": "==5.18.0"
         },
         "idna": {
             "hashes": [
