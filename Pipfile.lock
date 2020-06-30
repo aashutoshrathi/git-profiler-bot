@@ -116,18 +116,18 @@
         },
         "hypothesis": {
             "hashes": [
-                "sha256:2537cd4f6b300cca14fd109d4874d2fec83eb37a555a5dc85baf9636ab095a81",
-                "sha256:693cf6ea8985fb0bb520851930c995f11939d90eb2d07cee1dbc0868a0275162"
+                "sha256:ba7c92006716aaee4684f7876c116adedcfb88b19fcb55d21c47b28f03f933bf",
+                "sha256:dd21b1be951fefc9022047824c262f4e88d95dd24141b837b92e235c63baabb7"
             ],
             "index": "pypi",
-            "version": "==5.18.2"
+            "version": "==5.19.0"
         },
         "idna": {
             "hashes": [
-                "sha256:7588d1c14ae4c77d74036e8c22ff447b26d0fde8f007354fd48a7814db15b7cb",
-                "sha256:a068a21ceac8a4d63dbfd964670474107f541babbd2250d61922f029858365fa"
+                "sha256:b307872f855b18632ce0c21c5e45be78c0ea7ae4c15c828c20788b26921eb3f6",
+                "sha256:b97d804b1e9b523befed77c48dacec60e6dcb0b5391d57af6a65a312a90648c0"
             ],
-            "version": "==2.9"
+            "version": "==2.10"
         },
         "importlib-metadata": {
             "hashes": [
