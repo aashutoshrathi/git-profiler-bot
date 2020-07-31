@@ -108,12 +108,6 @@
             ],
             "version": "==4.4.2"
         },
-        "future": {
-            "hashes": [
-                "sha256:b1bead90b70cf6ec3f0710ae53a525360fa360d306a86583adc6bf83a4db537d"
-            ],
-            "version": "==0.18.2"
-        },
         "hypothesis": {
             "hashes": [
                 "sha256:b287f36ed3e3922154ee10603d1828378538e14878c2064e78fa7c19154bb330",
@@ -202,11 +196,11 @@
         },
         "python-telegram-bot": {
             "hashes": [
-                "sha256:218b0583afb8baeefe6f2f1ddd8f1bb1ae30f0af3ce9160a372abd2cdf258eef",
-                "sha256:6878cc642114c8c116ceada41639a9df487f42d5478d9f34cae513cc5c260dee"
+                "sha256:327186c56469216207dcdf8706892e58e0a62e51ef46f5143268e387bbb4edc3",
+                "sha256:7eebed539ccacf77896cff9e41d1f68746b8ff3ca4da1e2e59285e9c749cb050"
             ],
             "index": "pypi",
-            "version": "==12.7"
+            "version": "==12.8"
         },
         "requests": {
             "hashes": [
