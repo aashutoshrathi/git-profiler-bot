@@ -41,8 +41,8 @@ def stalk(user):
     count_api_url = os.environ.get('CONTRI_API')
     profile = ""
     
-    if data.get('error'):
-        return "Invalid GitHub username"
+    if res.get('error'):
+        return "Invalid GitHub username!"
     
     if api.status_code == 200:
         pic = "<a href='{}?a={}'>&#8205;</a>".format(
