@@ -18,10 +18,10 @@
     "default": {
         "attrs": {
             "hashes": [
-                "sha256:0ef97238856430dcf9228e07f316aefc17e8939fc8507e18c6501b761ef1a42a",
-                "sha256:2867b7b9f8326499ab5b0e2d12801fa5c98842d2cbd22b35112ae04bf85b4dff"
+                "sha256:26b54ddbbb9ee1d34d5d3668dd37d6cf74990ab23c828c2888dccdceee395594",
+                "sha256:fce7fc47dfc976152e82d53ff92fa0407700c21acd20886a13777a0d20e655dc"
             ],
-            "version": "==20.1.0"
+            "version": "==20.2.0"
         },
         "autopep8": {
             "hashes": [
@@ -113,11 +113,11 @@
         },
         "hypothesis": {
             "hashes": [
-                "sha256:92b993398097e9e135381d1590c72feda02b8635ce2b64e52ab8ecc0191fbe82",
-                "sha256:f95ab883c6260026b3462c54fdbe2a14c4066f3ab603ed8c3b639fb2f0ed053d"
+                "sha256:e376add85242e0e6388399ac2e07af41474f9d1265a04c605d2f0d8deb9d5e5f",
+                "sha256:e5f7b9214bad11588d5066d0600fa9371b6a2fcf68f8507a5748c0e3cda05f33"
             ],
             "index": "pypi",
-            "version": "==5.32.0"
+            "version": "==5.33.1"
         },
         "idna": {
             "hashes": [
