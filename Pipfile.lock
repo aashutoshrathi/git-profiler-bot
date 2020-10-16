@@ -128,11 +128,11 @@
         },
         "hypothesis": {
             "hashes": [
-                "sha256:4c6c69cd02be7053361dceefee95983a1d9aa6e388061d17a4ed486f8c60bce0",
-                "sha256:9b524052b0c5ed584d8c3a1c21a5b5d6333378a8b20b652792af762827401681"
+                "sha256:54bf2efa1da1286a348c436b4f815284107c6724fb3627f2522c2d02e3e559b5",
+                "sha256:bf3195e6a8b3dd5b285dbaa1cabdec7b3eea19bd16843227d2352a6bc58c17bd"
             ],
             "index": "pypi",
-            "version": "==5.37.1"
+            "version": "==5.37.3"
         },
         "idna": {
             "hashes": [
@@ -151,10 +151,9 @@
         },
         "iniconfig": {
             "hashes": [
-                "sha256:80cf40c597eb564e86346103f609d74efce0f6b4d4f30ec8ce9e2c26411ba437",
-                "sha256:e5f92f89355a67de0595932a6c6c02ab4afddc6fcdc0bfc5becd0d60884d3f69"
+                "sha256:bc3af051d7d14b2ee5ef9969666def0cd1a000e121eaea580d4a313df4b37f32"
             ],
-            "version": "==1.0.1"
+            "version": "==1.1.1"
         },
         "packaging": {
             "hashes": [
