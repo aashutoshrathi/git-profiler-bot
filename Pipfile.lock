@@ -25,10 +25,10 @@
         },
         "attrs": {
             "hashes": [
-                "sha256:26b54ddbbb9ee1d34d5d3668dd37d6cf74990ab23c828c2888dccdceee395594",
-                "sha256:fce7fc47dfc976152e82d53ff92fa0407700c21acd20886a13777a0d20e655dc"
+                "sha256:31b2eced602aa8423c2aea9c76a724617ed67cf9513173fd3a4f03e3a929c7e6",
+                "sha256:832aa3cde19744e49938b91fea06d69ecb9e649c93ba974535d08ad92164f700"
             ],
-            "version": "==20.2.0"
+            "version": "==20.3.0"
         },
         "autopep8": {
             "hashes": [
@@ -39,10 +39,10 @@
         },
         "certifi": {
             "hashes": [
-                "sha256:5930595817496dd21bb8dc35dad090f1c2cd0adfaf21204bf6732ca5d8ee34d3",
-                "sha256:8fc0819f1f30ba15bdb34cceffb9ef04d99f420f68eb75d901e9560b8749fc41"
+                "sha256:1f422849db327d534e3d0c5f02a263458c3955ec0aae4ff09b95f195c59f4edd",
+                "sha256:f05def092c44fbf25834a51509ef6e631dc19765ab8a57b4e7ab85531f0a9cf4"
             ],
-            "version": "==2020.6.20"
+            "version": "==2020.11.8"
         },
         "cffi": {
             "hashes": [
@@ -128,11 +128,11 @@
         },
         "hypothesis": {
             "hashes": [
-                "sha256:06776c245b5eb25011040f94779fda6bbfa9def72074672af2e79a5e6bce8b38",
-                "sha256:427af0c964e784d296f1c3ed8804c3d03677cafe641a4ab574980e5672b179f5"
+                "sha256:868be828390ae2d8bb90ba77271fd05269b9e0bc8d4ebb246a579edfcacfc4e7",
+                "sha256:f8c281355aaba1da696e40f1488c2bb47c42660424f5750daea45a85e2d047b3"
             ],
             "index": "pypi",
-            "version": "==5.41.1"
+            "version": "==5.41.2"
         },
         "idna": {
             "hashes": [
@@ -238,10 +238,10 @@
         },
         "sortedcontainers": {
             "hashes": [
-                "sha256:4e73a757831fc3ca4de2859c422564239a31d8213d09a2a666e375807034d2ba",
-                "sha256:c633ebde8580f241f274c1f8994a665c0e54a17724fecd0cae2f079e09c36d3f"
+                "sha256:37257a32add0a3ee490bb170b599e93095eed89a55da91fa9f48753ea12fd73f",
+                "sha256:59cc937650cf60d677c16775597c89a960658a09cf7c1a668f86e1e4464b10a1"
             ],
-            "version": "==2.2.2"
+            "version": "==2.3.0"
         },
         "toml": {
             "hashes": [
