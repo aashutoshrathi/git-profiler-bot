@@ -120,11 +120,11 @@
         },
         "hypothesis": {
             "hashes": [
-                "sha256:c53dacd3951092b02f6247214aae5f41054509ff5c68448deeb1b825c75f2712",
-                "sha256:f30426f0923e1cf12b1bf9799394dcba96858fd4af5323f19cce016685c3fe16"
+                "sha256:37990720e2894f99aee6ee870805190b772fa7d88478a3388aa100dece7dbeb1",
+                "sha256:c343282d67ee0efe5bdc2181e642941ffaf3a3c720d95b11c3e8c0a11d60325e"
             ],
             "index": "pypi",
-            "version": "==5.46.0"
+            "version": "==5.47.0"
         },
         "idna": {
             "hashes": [
