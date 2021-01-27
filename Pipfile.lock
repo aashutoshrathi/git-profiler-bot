@@ -120,11 +120,11 @@
         },
         "hypothesis": {
             "hashes": [
-                "sha256:c606c5141ea167a6893ffaea2647a263b93f8db6af28f58b526ce2edce08685a",
-                "sha256:de3c21d89e2d9e36463a57706b411fad37158f2dc704e357b7f3b1ddd2669aa4"
+                "sha256:682b47436332a737ecb5a90bc0ce3d8fd866140ce5d46fb7d8a2e3a147693fa1",
+                "sha256:f13662cfe7131cba67abbdb38e935ad4a3f4ad3b4aa4c7ed49df1cb15be94a67"
             ],
             "index": "pypi",
-            "version": "==6.0.3"
+            "version": "==6.0.4"
         },
         "idna": {
             "hashes": [
@@ -306,10 +306,10 @@
         },
         "urllib3": {
             "hashes": [
-                "sha256:19188f96923873c92ccb987120ec4acaa12f0461fa9ce5d3d0772bc965a39e08",
-                "sha256:d8ff90d979214d7b4f8ce956e80f4028fc6860e4431f731ea4a8c08f23f99473"
+                "sha256:1b465e494e3e0d8939b50680403e3aedaa2bc434b7d5af64dfd3c958d7f5ae80",
+                "sha256:de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
             ],
-            "version": "==1.26.2"
+            "version": "==1.26.3"
         },
         "zipp": {
             "hashes": [
