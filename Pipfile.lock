@@ -120,11 +120,11 @@
         },
         "hypothesis": {
             "hashes": [
-                "sha256:682b47436332a737ecb5a90bc0ce3d8fd866140ce5d46fb7d8a2e3a147693fa1",
-                "sha256:f13662cfe7131cba67abbdb38e935ad4a3f4ad3b4aa4c7ed49df1cb15be94a67"
+                "sha256:0fee2282d5a586933e448da7b4598260e17ae2bbc9e29017ebfaf11940b9291e",
+                "sha256:8a9824d862495bbc49274604e2ba13287578159e87a3fd97f8a4249d723f4428"
             ],
             "index": "pypi",
-            "version": "==6.0.4"
+            "version": "==6.1.0"
         },
         "idna": {
             "hashes": [
@@ -150,10 +150,10 @@
         },
         "packaging": {
             "hashes": [
-                "sha256:24e0da08660a87484d1602c30bb4902d74816b6985b93de36926f5bc95741858",
-                "sha256:78598185a7008a470d64526a8059de9aaa449238f280fc9eb6b13ba6c4109093"
+                "sha256:5b327ac1320dc863dca72f4514ecc086f31186744b84a230374cc1fd776feae5",
+                "sha256:67714da7f7bc052e064859c05c595155bd1ee9f69f76557e21f051443c20947a"
             ],
-            "version": "==20.8"
+            "version": "==20.9"
         },
         "pluggy": {
             "hashes": [
