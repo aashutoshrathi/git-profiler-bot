@@ -105,13 +105,6 @@
             ],
             "version": "==3.4.4"
         },
-        "decorator": {
-            "hashes": [
-                "sha256:41fa54c2a0cc4ba648be4fd43cff00aedf5b9465c9bf18d64325bc225f08f760",
-                "sha256:e3a62f0520172440ca0dcc823749319382e377f37f140a0b99ef45fecb84bfe7"
-            ],
-            "version": "==4.4.2"
-        },
         "hypothesis": {
             "hashes": [
                 "sha256:32c1706ee12a493befb5192e91a74b355fc2d6b70ce89e21c5b54e24713fc821",
@@ -194,11 +187,11 @@
         },
         "python-telegram-bot": {
             "hashes": [
-                "sha256:5feebb08ed08d7b71ceb4c05372b9f6a21d83994b5018db111509765881c8282",
-                "sha256:9a887a5057d1eb4fede9d04f736d53365cdb1cda1035c0f4fecb645cfd59c456"
+                "sha256:12adf52b59d7b23ba26b1f3e25ca95a4f850985ebf08a019bb7fd835c432929b",
+                "sha256:b87cdb2fca2983d4d49287c76ea64f13c5b786260bb742fe9a28334f20e6b2d3"
             ],
             "index": "pypi",
-            "version": "==13.1"
+            "version": "==13.2"
         },
         "pytz": {
             "hashes": [
