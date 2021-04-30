@@ -1,0 +1,18 @@
+version: 2
+updates:
+- package-ecosystem: pip
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "23:30"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: hypothesis
+    versions:
+    - 6.1.1
+    - 6.10.1
+    - 6.8.1
+    - 6.8.5
+  - dependency-name: cryptography
+    versions:
+    - 3.3.2
