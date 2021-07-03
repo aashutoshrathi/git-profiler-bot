@@ -64,11 +64,11 @@
         },
         "hypothesis": {
             "hashes": [
-                "sha256:27aa2af763af06b8b61ce65c09626cf1da6d3a6ff155900f3c581837b453313a",
-                "sha256:9bdee01ae260329b16117e9b0229a839b4a77747a985922653f595bd2a6a541a"
+                "sha256:6dad44da8962cc7c13cdc28cf9b78c6779b5a0b0279a9baac427ae6d109f70e3",
+                "sha256:88b0736a5691b68b8e16a4b7ee8e4c8596810c5a20989ea5b5f64870a7c25740"
             ],
             "index": "pypi",
-            "version": "==6.14.0"
+            "version": "==6.14.1"
         },
         "idna": {
             "hashes": [
@@ -260,11 +260,11 @@
         },
         "zipp": {
             "hashes": [
-                "sha256:3607921face881ba3e026887d8150cca609d517579abe052ac81fc5aeffdbd76",
-                "sha256:51cb66cc54621609dd593d1787f286ee42a5c0adbb4b29abea5a63edc3e03098"
+                "sha256:a5303f8ad20aff64720bf548256646f74fc8c167065c0d177a98a7cadceed85a",
+                "sha256:ce85de43ee0ead77dd0fbee3902bec1501aef59b92a2e18265396b22a1d756ab"
             ],
             "markers": "python_version >= '3.6'",
-            "version": "==3.4.1"
+            "version": "==3.4.2"
         }
     },
     "develop": {}
